@@ -13,9 +13,7 @@ class HasMany extends RelationsHasMany
      */
     public function getForeignKeyName()
     {
-        $segments = explode('.', $this->getQualifiedForeignKeyName());
-        $lastSegment = end($segments);
-        $segments = explode('::', $lastSegment);
+        $segments = explode('::', parent::getForeignKeyName());
 
         return reset($segments);
     }
